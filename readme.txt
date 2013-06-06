@@ -1,5 +1,7 @@
 If you are using Visual Studio do the following:
  
+ 
+ 
 1. Open the solution file "Composite C1 Website.sln"
 2. Open the "Property Page" for the web project
 3. To rule out file permission errors, select "Start options" 
