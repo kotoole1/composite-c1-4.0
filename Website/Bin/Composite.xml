@@ -16980,6 +16980,9 @@
             </summary>
             <exclude />
         </member>
+        <member name="T:Composite.Core.PackageSystem.PackageFragmentInstallers.PackageFragmentValidationExtension">
+            <exclude />
+        </member>
         <member name="T:Composite.Core.PackageSystem.PackageFragmentInstallers.PackageLicenseFragmentInstaller">
             <summary>    
             </summary>
@@ -18276,35 +18279,30 @@
             usage which is when the Composite.Generated.dll is compiled. This is done through the implementation
             and adding of the interface <see cref="T:Composite.Core.Types.ICodeProvider"/> and <see cref="T:Composite.Core.Types.CodeGenerationManager"/>.
             </summary>
-            <exclude/>
         </member>
         <member name="M:Composite.Core.Types.CodeGenerationBuilder.#ctor(System.String)">
             <summary>
             Creates a new instance.
             </summary>
             <param name="debugLabel">This label will be used for logging when compiling the types.</param>
-            <exclude />
         </member>
         <member name="M:Composite.Core.Types.CodeGenerationBuilder.AddReference(System.Reflection.Assembly)">
             <summary>
             Adds a referenced assembly to be used in the compilation.
             </summary>
             <param name="assembly">The referenced assembly.</param>
-            <exclude />
         </member>
         <member name="M:Composite.Core.Types.CodeGenerationBuilder.AddReference(System.String)">
             <summary>
             Adds a referenced assembly to be used in the compilation.
             </summary>
             <param name="assemblyLocation">The location of the referenced assembly.</param>
-            <exclude />
         </member>
         <member name="M:Composite.Core.Types.CodeGenerationBuilder.AddNamespace(System.CodeDom.CodeNamespace)">
             <summary>
             Adds a code namespace containing types to compile.
             </summary>
             <param name="codeNamespace">Code namespace to add.</param>
-            <exclude />
         </member>
         <member name="M:Composite.Core.Types.CodeGenerationBuilder.AddType(System.String,System.CodeDom.CodeTypeDeclaration)">
             <summary>
@@ -18313,7 +18311,6 @@
             </summary>
             <param name="namespaceName">Namespace to add the type to.</param>
             <param name="codeTypeDeclaration">Type declaration to compile.</param>
-            <exclude />
         </member>
         <member name="M:Composite.Core.Types.CodeGenerationBuilder.AddTypes(System.String,System.Collections.Generic.IEnumerable{System.CodeDom.CodeTypeDeclaration})">
             <summary>
@@ -18322,19 +18319,16 @@
             </summary>
             <param name="namespaceName"></param>
             <param name="codeTypeDeclarations"></param>
-            <exclude />
         </member>
         <member name="P:Composite.Core.Types.CodeGenerationBuilder.AssemblyLocations">
             <summary>
             Added assembly locations
             </summary>
-            <exclude />
         </member>
         <member name="P:Composite.Core.Types.CodeGenerationBuilder.Namespaces">
             <summary>
             Added namespaces
             </summary>
-            <exclude />
         </member>
         <member name="T:Composite.Core.Types.CodeGenerationCommon">
             <exclude />
@@ -18368,7 +18362,6 @@
             <summary>
             Handles all dynamic type compilations and the generation of Composite.Generated.dll
             </summary>
-            <exclude />
         </member>
         <member name="M:Composite.Core.Types.CodeGenerationManager.ValidateCompositeGenerate(System.DateTime)">
             <summary>
@@ -18427,6 +18420,22 @@
         <member name="P:Composite.Core.Types.CodeGenerationManager.CompiledAssemblies">
             <summary>
             Returns all currently temp compiled assemblies.
+            </summary>
+        </member>
+        <member name="P:Composite.Core.Types.CodeGenerationManager.TempAssemblyFolderPath">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Composite.Core.Types.CodeGenerationManager.BinFolder">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Composite.Core.Types.CodeGenerationManager.CompositeGeneratedFileName">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Composite.Core.Types.CodeGenerationManager.CompositeGeneratedAssemblyPath">
+            <summary>
             </summary>
         </member>
         <member name="T:Composite.Core.Types.ICodeProvider">
@@ -19568,6 +19577,32 @@
             </summary>
             <param name="declaration"></param>
             <param name="properties">Tuple(string propertyName, Type propertyType, bool readOnly)</param>
+        </member>
+        <member name="T:Composite.Data.GeneratedTypes.InterfaceCodeGenerator">
+            <summary>
+            Will generate data interfaces given <see cref="T:Composite.Data.DynamicTypes.DataTypeDescriptor"/>.
+            </summary>
+        </member>
+        <member name="M:Composite.Data.GeneratedTypes.InterfaceCodeGenerator.AddAssemblyReferences(Composite.Core.Types.CodeGenerationBuilder,Composite.Data.DynamicTypes.DataTypeDescriptor)">
+            <summary>
+            Adds the assembly references required by the supplied <see cref="T:Composite.Data.DynamicTypes.DataTypeDescriptor"/> to the supplied  <see cref="T:Composite.Core.Types.CodeGenerationBuilder"/>
+            </summary>
+            <param name="codeGenerationBuilder">Assembly refences is added to this builder</param>
+            <param name="dataTypeDescriptor">Data type descriptor which may contain references to assemblies</param>
+        </member>
+        <member name="M:Composite.Data.GeneratedTypes.InterfaceCodeGenerator.AddInterfaceTypeCode(Composite.Core.Types.CodeGenerationBuilder,Composite.Data.DynamicTypes.DataTypeDescriptor)">
+            <summary>
+            Adds the source code defined by <see cref="T:Composite.Data.DynamicTypes.DataTypeDescriptor"/> to the supplied  <see cref="T:Composite.Core.Types.CodeGenerationBuilder"/>
+            </summary>
+            <param name="codeGenerationBuilder">Source code is added to this builder</param>
+            <param name="dataTypeDescriptor">Data type descriptor to convert into source code</param>
+        </member>
+        <member name="M:Composite.Data.GeneratedTypes.InterfaceCodeGenerator.CreateCodeTypeDeclaration(Composite.Data.DynamicTypes.DataTypeDescriptor)">
+            <summary>
+            Given a <see cref="T:Composite.Data.DynamicTypes.DataTypeDescriptor"/> creates a interface declaration inheriting from IData, a valid C1 Datatype.
+            </summary>
+            <param name="dataTypeDescriptor">A description of the data type to generate interface for</param>
+            <returns>The gerenated interface</returns>
         </member>
         <member name="T:Composite.Data.GeneratedTypes.InterfaceCodeManager">
             <summary>
@@ -22298,6 +22333,9 @@
         <member name="M:Composite.Functions.Inline.InlineFunctionCreateMethodErrorHandler.OnMissionMethod(System.String)">
             <exclude />
         </member>
+        <member name="M:Composite.Functions.Inline.InlineFunctionCreateMethodErrorHandler.OnLoadSourceError(System.Exception)">
+            <exclude />
+        </member>
         <member name="P:Composite.Functions.Inline.InlineFunctionCreateMethodErrorHandler.HasErrors">
             <exclude />
         </member>
@@ -22331,6 +22369,9 @@
             <exclude />
         </member>
         <member name="P:Composite.Functions.Inline.StringInlineFunctionCreateMethodErrorHandler.MissionMethod">
+            <exclude />
+        </member>
+        <member name="P:Composite.Functions.Inline.StringInlineFunctionCreateMethodErrorHandler.LoadingException">
             <exclude />
         </member>
         <member name="P:Composite.Functions.Inline.StringInlineFunctionCreateMethodErrorHandler.HasErrors">
@@ -36883,24 +36924,47 @@
             </summary>
         </member>
         <member name="T:Composite.Data.DynamicTypes.DataFieldDescriptor">
-            <summary>    
+            <summary>
+            Describe a field on a <see cref="T:Composite.Data.DynamicTypes.DataTypeDescriptor"/>.
             </summary>
-            <exclude />
         </member>
         <member name="M:Composite.Data.DynamicTypes.DataFieldDescriptor.#ctor(System.Guid,System.String,Composite.Data.DynamicTypes.StoreFieldType,System.Type)">
-            <exclude />
+            <summary>
+            Constructs a new instance.
+            </summary>
+            <param name="id">Permanent unique id for this field. This should never change.</param>
+            <param name="name">Name (programmatic) of field.</param>
+            <param name="storeType">Type to use when storing field.</param>
+            <param name="instanceType">Type to use when field is exposed to .NET.</param>
         </member>
         <member name="M:Composite.Data.DynamicTypes.DataFieldDescriptor.#ctor(System.Guid,System.String,Composite.Data.DynamicTypes.StoreFieldType,System.Type,System.Boolean)">
-            <exclude />
+            <summary>
+            Constructs a new instance.
+            </summary>
+            <param name="id">Permanent unique id for this field. This should never change.</param>
+            <param name="name">Name (programmatic) of field </param>
+            <param name="storeType">Type to use when storing field</param>
+            <param name="instanceType">Type to use when field is exposed to .NET</param>
+            <param name="inherited">True when this field is inherited from a super interface.</param>
         </member>
         <member name="M:Composite.Data.DynamicTypes.DataFieldDescriptor.Clone">
-            <exclude />
+            <summary>
+            Create a clone of this field.
+            </summary>
+            <returns>The clone.</returns>
         </member>
         <member name="M:Composite.Data.DynamicTypes.DataFieldDescriptor.ToXml">
-            <exclude />
+            <summary>
+            Serialize this field description XML.
+            </summary>
+            <returns>Serialized field descriptor.</returns>
         </member>
         <member name="M:Composite.Data.DynamicTypes.DataFieldDescriptor.FromXml(System.Xml.Linq.XElement)">
-            <exclude />
+            <summary>
+            Deserialize a <see cref="T:Composite.Data.DynamicTypes.DataFieldDescriptor"/>.
+            </summary>
+            <param name="element">Deserialized DataFieldDescriptor</param>
+            <returns></returns>
         </member>
         <member name="M:Composite.Data.DynamicTypes.DataFieldDescriptor.Equals(System.Object)">
             <exclude />
@@ -36912,16 +36976,25 @@
             <exclude />
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataFieldDescriptor.Position">
-            <exclude />
+            <summary>
+            Position, relative to other fields.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataFieldDescriptor.GroupByPriority">
-            <exclude />
+            <summary>
+            For grouping (ex. tree views), the priority of this field, relative to other fields. Lowest number gets grouped first. 
+            0 means no grouping on this field.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataFieldDescriptor.FormRenderingProfile">
-            <exclude />
+            <summary>
+            Describe how this field should be edited in a form view
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataFieldDescriptor.TreeOrderingProfile">
-            <exclude />
+            <summary>
+            Describe how this field should influence ordering of items in a tree view
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataFieldDescriptor.ForeignKeyReferenceTypeName">
             <summary>
@@ -36929,34 +37002,54 @@
             </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataFieldDescriptor.InstanceType">
-            <exclude />
+            <summary>
+            The CLR type of the field.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataFieldDescriptor.Name">
-            <exclude />
+            <summary>
+            Programmatic name of the field.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataFieldDescriptor.Id">
-            <exclude />
+            <summary>
+            Permanent unique id for the field. This should never change.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataFieldDescriptor.StoreType">
-            <exclude />
+            <summary>
+            Describe how this field should be sored physically.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataFieldDescriptor.DefaultValue">
-            <exclude />
+            <summary>
+            Default value for the field, to be used for the physical store. See also <see cref="P:Composite.Data.DynamicTypes.DataFieldDescriptor.NewInstanceDefaultFieldValue"/>
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataFieldDescriptor.IsNullable">
-            <exclude />
+            <summary>
+            True when this field can be NULL
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataFieldDescriptor.Inherited">
-            <exclude />
+            <summary>
+            True when this field is inherited from a super interface.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataFieldDescriptor.IsReadOnly">
-            <exclude />
+            <summary>
+            True when data in this field can not be changed.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataFieldDescriptor.ValidationFunctionMarkup">
-            <exclude />
+            <summary>
+            Function markup that can deliver validators for this field. They will execute and valudate if values set on this field is valid.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataFieldDescriptor.NewInstanceDefaultFieldValue">
-            <exclude />
+            <summary>
+            Default value to set on new instances of this field.
+            </summary>
         </member>
         <member name="T:Composite.Data.DynamicTypes.DataFieldDescriptorCollection">
             <summary>    
@@ -37108,38 +37201,89 @@
         </member>
         <member name="T:Composite.Data.DynamicTypes.DataTypeDescriptor">
             <summary>    
+            Describes a data type in Composite C1
             </summary>
-            <exclude />
         </member>
         <member name="M:Composite.Data.DynamicTypes.DataTypeDescriptor.#ctor">
-            <exclude />
+            <summary>
+            Instanciates an instance of <see cref="T:Composite.Data.DynamicTypes.DataTypeDescriptor"/> with default settings.
+            </summary>
         </member>
         <member name="M:Composite.Data.DynamicTypes.DataTypeDescriptor.#ctor(System.Guid,System.String,System.String,System.Boolean)">
-            <exclude />
+            <summary>
+            Instanciates an instance of <see cref="T:Composite.Data.DynamicTypes.DataTypeDescriptor"/>.
+            </summary>
+            <param name="dataTypeId">The permanent Guid which should represent this data type.</param>
+            <param name="dataTypeNamespace">Namespace of the type.</param>
+            <param name="dataTypeName">Name of the type.</param>
+            <param name="isCodeGenerated">True if this type is dynamically compiled.</param>
         </member>
         <member name="M:Composite.Data.DynamicTypes.DataTypeDescriptor.#ctor(System.Guid,System.String,System.String,System.String)">
-            <exclude />
+            <summary>
+            Instanciates an instance of <see cref="T:Composite.Data.DynamicTypes.DataTypeDescriptor"/> with a custom Type Manager.
+            </summary>
+            <param name="dataTypeId">The permanent Guid which should represent this data type.</param>
+            <param name="dataTypeNamespace">Namespace of the type.</param>
+            <param name="dataTypeName">Name of the type.</param>
+            <param name="typeManagerTypeName">If this data type has a custom type manager</param>
         </member>
         <member name="M:Composite.Data.DynamicTypes.DataTypeDescriptor.#ctor(System.Guid,System.String,System.String,System.String,System.Boolean)">
-            <exclude />
+            <summary>
+            Instanciates an instance of <see cref="T:Composite.Data.DynamicTypes.DataTypeDescriptor"/> with a custom Type Manager.
+            </summary>
+            <param name="dataTypeId">The permanent Guid which should represent this data type.</param>
+            <param name="dataTypeNamespace">Namespace of the type.</param>
+            <param name="dataTypeName">Name of the type.</param>
+            <param name="typeManagerTypeName">If this data type has a custom type manager</param>
+            <param name="isCodeGenerated">True if this type is dynamically compiled.</param>
         </member>
         <member name="M:Composite.Data.DynamicTypes.DataTypeDescriptor.GetInterfaceType">
-            <exclude />
+            <summary>
+            Returns the CLT Type for this data type description.
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:Composite.Data.DynamicTypes.DataTypeDescriptor.AddSuperInterface(System.Type)">
-            <exclude />
+            <summary>
+            Adds an interface the data type should inherit from
+            </summary>
+            <param name="interfaceType"></param>
         </member>
         <member name="M:Composite.Data.DynamicTypes.DataTypeDescriptor.RemoveSuperInterface(System.Type)">
-            <exclude />
+            <summary>
+            Removes a super interface
+            </summary>
+            <param name="interfaceType">Type to remove</param>
+        </member>
+        <member name="M:Composite.Data.DynamicTypes.DataTypeDescriptor.SetSuperInterfaces(System.Collections.Generic.List{System.Type})">
+            <summary>
+            Resets the list of interfaces this data type inherit from
+            </summary>
+            <param name="superInterfaces"></param>
+        </member>
+        <member name="M:Composite.Data.DynamicTypes.DataTypeDescriptor.Validate">
+            <summary>
+            Validate the data type description or throw an exception.
+            </summary>
         </member>
         <member name="M:Composite.Data.DynamicTypes.DataTypeDescriptor.Clone">
-            <exclude />
+            <summary>
+            Clones the data type descriotion.
+            </summary>
+            <returns>A clone</returns>
         </member>
         <member name="M:Composite.Data.DynamicTypes.DataTypeDescriptor.ToXml">
-            <exclude />
+            <summary>
+            Serialize the data type descriotion to XML
+            </summary>
+            <returns>Serialized data type descriptor</returns>
         </member>
         <member name="M:Composite.Data.DynamicTypes.DataTypeDescriptor.FromXml(System.Xml.Linq.XElement)">
-            <exclude />
+            <summary>
+            Deserialized a data type descriptor
+            </summary>
+            <param name="element">A serialized (XML) data type descriptor</param>
+            <returns>De-serialized data type descriptor</returns>
         </member>
         <member name="M:Composite.Data.DynamicTypes.DataTypeDescriptor.GetHashCode">
             <exclude />
@@ -37154,13 +37298,19 @@
             <exclude />
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataTypeDescriptor.DataTypeId">
-            <exclude />
+            <summary>
+            The data types permant id.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataTypeDescriptor.KeyPropertyNames">
-            <exclude />
+            <summary>
+            Primary keys.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataTypeDescriptor.TypeManagerTypeName">
-            <exclude />
+            <summary>
+            Type name of the Type Manager responsible for this data type.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataTypeDescriptor.StoreSortOrderFieldNames">
             <summary>
@@ -37175,43 +37325,69 @@
             <summary>The short name of the type, without namespace and assembly info</summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataTypeDescriptor.Namespace">
-            <exclude />
+            <summary>
+            The data types namespace 
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataTypeDescriptor.Title">
-            <exclude />
+            <summary>
+            The data types title
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataTypeDescriptor.LabelFieldName">
-            <exclude />
+            <summary>
+            The name of field to use when labeling data of this type.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataTypeDescriptor.IsCodeGenerated">
-            <exclude />
+            <summary>
+            True if the interface code for this type is created via code generation. False for statically compiled types.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataTypeDescriptor.Cachable">
-            <exclude />
+            <summary>
+            When true data of this type may be cached.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataTypeDescriptor.HasCustomPhysicalSortOrder">
-            <exclude />
+            <summary>
+            When true this type has a physical sortorder specified.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataTypeDescriptor.DataScopes">
-            <exclude />
+            <summary>
+            The data scopes this data type exist in. Typically always "public". Also "administrated" if this type supports publishing.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataTypeDescriptor.Localizeable">
-            <exclude />
+            <summary>
+            When true data can be localized.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataTypeDescriptor.BuildNewHandlerTypeName">
-            <exclude />
+            <summary>
+            Type name for custom handler to use when building new instances of the data type.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataTypeDescriptor.SuperInterfaces">
-            <exclude />
+            <summary>
+            All interfaces this data type inherit from
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataTypeDescriptor.DataAssociations">
-            <exclude />
+            <summary>
+            Attached a associated to another data type, like page meta data or page folder data.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataTypeDescriptor.IsPageFolderDataType">
-            <exclude />
+            <summary>
+            True when the data type is associated to Composite C1 pages as an agregation
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DataTypeDescriptor.IsPageMetaDataType">
-            <exclude />
+            <summary>
+            True when the data type is associated to Composite C1 pages as an composition
+            </summary>
         </member>
         <member name="T:Composite.Data.DynamicTypes.DataTypeDescriptorExtensions">
             <summary>    
@@ -37236,25 +37412,48 @@
         <member name="T:Composite.Data.DynamicTypes.DefaultValue">
             <summary>    
             </summary>
-            <exclude />
         </member>
         <member name="M:Composite.Data.DynamicTypes.DefaultValue.String(System.String)">
-            <exclude />
+            <summary>
+            String default value
+            </summary>
+            <param name="defaultValue">value</param>
+            <returns></returns>
         </member>
         <member name="M:Composite.Data.DynamicTypes.DefaultValue.Integer(System.Int32)">
-            <exclude />
+            <summary>
+            Int default value
+            </summary>
+            <param name="defaultValue">value</param>
+            <returns></returns>
         </member>
         <member name="M:Composite.Data.DynamicTypes.DefaultValue.Decimal(System.Decimal)">
-            <exclude />
+            <summary>
+            Demimal default value
+            </summary>
+            <param name="defaultValue">value</param>
+            <returns></returns>
         </member>
         <member name="M:Composite.Data.DynamicTypes.DefaultValue.Boolean(System.Boolean)">
-            <exclude />
+            <summary>
+            Bool default value
+            </summary>
+            <param name="defaultValue">value</param>
+            <returns></returns>
         </member>
         <member name="M:Composite.Data.DynamicTypes.DefaultValue.DateTime(System.DateTime)">
-            <exclude />
+            <summary>
+            DateTime default value
+            </summary>
+            <param name="defaultValue">value</param>
+            <returns></returns>
         </member>
         <member name="M:Composite.Data.DynamicTypes.DefaultValue.Guid(System.Guid)">
-            <exclude />
+            <summary>
+            Guid default value
+            </summary>
+            <param name="defaultValue">value</param>
+            <returns></returns>
         </member>
         <member name="M:Composite.Data.DynamicTypes.DefaultValue.Clone">
             <exclude />
@@ -37272,16 +37471,26 @@
             <exclude />
         </member>
         <member name="P:Composite.Data.DynamicTypes.DefaultValue.Now">
-            <exclude />
+            <summary>
+            'Now' as a default value (time stamp)
+            </summary>
+            <returns></returns>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DefaultValue.NewGuid">
-            <exclude />
+            <summary>
+            New Guid as default value. Generate a new unique Guid.
+            </summary>
+            <returns></returns>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DefaultValue.Value">
-            <exclude />
+            <summary>
+            The default value.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.DefaultValue.ValueType">
-            <exclude />
+            <summary>
+            Type of the default value
+            </summary>
         </member>
         <member name="T:Composite.Data.DynamicTypes.DefaultValueType">
             <summary>    
@@ -37378,17 +37587,30 @@
         </member>
         <member name="T:Composite.Data.DynamicTypes.StoreFieldType">
             <summary>    
+            Describe a field on a Composite C1 data type, see <see cref="T:Composite.Data.DynamicTypes.DataTypeDescriptor"/>.
             </summary>
-            <exclude />
         </member>
         <member name="M:Composite.Data.DynamicTypes.StoreFieldType.String(System.Int32)">
-            <exclude />
+            <summary>
+            Builds a <see cref="T:Composite.Data.DynamicTypes.StoreFieldType"/> describing a string.
+            </summary>
+            <param name="maximumLength">String maximum length</param>
+            <returns></returns>
         </member>
         <member name="M:Composite.Data.DynamicTypes.StoreFieldType.Decimal(System.Int32,System.Int32)">
-            <exclude />
+            <summary>
+            Builds a <see cref="T:Composite.Data.DynamicTypes.StoreFieldType"/> describing a decimal.
+            </summary>
+            <param name="precision">precision</param>
+            <param name="scale">scale</param>
+            <returns></returns>
         </member>
         <member name="M:Composite.Data.DynamicTypes.StoreFieldType.IsConvertibleTo(Composite.Data.DynamicTypes.StoreFieldType)">
-            <exclude />
+            <summary>
+            Evaluate if one field type can safely change to another type.
+            </summary>
+            <param name="newStoreFieldType">New store field type</param>
+            <returns>True is conversion is allowed.</returns>
         </member>
         <member name="M:Composite.Data.DynamicTypes.StoreFieldType.ToString">
             <exclude />
@@ -37406,55 +37628,87 @@
             <summary>The maximum number of digits a decimal may contain (28).</summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.StoreFieldType.Integer">
-            <exclude />
+            <summary>
+            Builds a <see cref="T:Composite.Data.DynamicTypes.StoreFieldType"/> describing a int.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.StoreFieldType.Long">
-            <exclude />
+            <summary>
+            Builds a <see cref="T:Composite.Data.DynamicTypes.StoreFieldType"/> describing a long.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.StoreFieldType.DateTime">
-            <exclude />        
+            <summary>
+            Builds a <see cref="T:Composite.Data.DynamicTypes.StoreFieldType"/> describing a DateTime.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.StoreFieldType.LargeString">
-            <exclude />
+            <summary>
+            Builds a <see cref="T:Composite.Data.DynamicTypes.StoreFieldType"/> describing a string with unlimited length.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.StoreFieldType.Boolean">
-            <exclude />
+            <summary>
+            Builds a <see cref="T:Composite.Data.DynamicTypes.StoreFieldType"/> describing a bool.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.StoreFieldType.Guid">
-            <exclude />
+            <summary>
+            Builds a <see cref="T:Composite.Data.DynamicTypes.StoreFieldType"/> describing a Guid.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.StoreFieldType.PhysicalStoreType">
-            <exclude />
+            <summary>
+            The type of physical store for this field
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.StoreFieldType.IsString">
-            <exclude />
+            <summary>
+            True when this field is a string.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.StoreFieldType.IsLargeString">
-            <exclude />
+            <summary>
+            True when this field is a string of unlimited length.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.StoreFieldType.IsDecimal">
-            <exclude />
+            <summary>
+            True when this field is a decimal.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.StoreFieldType.IsDateTime">
-            <exclude />
+            <summary>
+            True when this field is a DateTime.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.StoreFieldType.IsGuid">
-            <exclude />
+            <summary>
+            True when this field is a Guid.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.StoreFieldType.IsNumeric">
             <exclude />
         </member>
         <member name="P:Composite.Data.DynamicTypes.StoreFieldType.IsBoolean">
-            <exclude />
+            <summary>
+            True when this field is a boolean.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.StoreFieldType.MaximumLength">
-            <exclude />
+            <summary>
+            Maximum length of string. This field is only used for string.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.StoreFieldType.NumericPrecision">
-            <exclude />
+            <summary>
+            Numeric precision of decimal. This field is only used for decimal.
+            </summary>
         </member>
         <member name="P:Composite.Data.DynamicTypes.StoreFieldType.NumericScale">
-            <exclude />
+            <summary>
+            Numeric scale of decimal. This field is only used for decimal.
+            </summary>
         </member>
         <member name="T:Composite.Data.Foundation.CodeGeneration.EmptyDataClassBase">
             <summary>    
@@ -42594,14 +42848,30 @@
         <member name="M:Composite.Data.Validation.Validators.DecimalPrecisionValidatorAttribute.#ctor(System.Int32)">
             <exclude />
         </member>
+        <member name="M:Composite.Data.Validation.Validators.DecimalPrecisionValidatorAttribute.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Creates a decimal precision validator
+            </summary>
+            <param name="precision">Digits in total</param>
+            <param name="scale">Digits after decimal point</param>
+        </member>
         <member name="M:Composite.Data.Validation.Validators.DecimalPrecisionValidatorAttribute.DoCreateValidator(System.Type)">
             <exclude />
         </member>
         <member name="P:Composite.Data.Validation.Validators.DecimalPrecisionValidatorAttribute.Digits">
-            <exclude />
+            <summary>
+            Number of digits after decimal point - normally you would call this scale.
+            </summary>
+        </member>
+        <member name="P:Composite.Data.Validation.Validators.DecimalPrecisionValidatorAttribute.Scale">
+            <summary>
+            Number of digits in total
+            </summary>
         </member>
         <member name="P:Composite.Data.Validation.Validators.DecimalPrecisionValidatorAttribute.Precision">
-            <exclude />
+            <summary>
+            Number of digits in total
+            </summary>
         </member>
         <member name="T:Composite.Data.Validation.Validators.NullStringLengthValidatorAttribute">
             <summary>
